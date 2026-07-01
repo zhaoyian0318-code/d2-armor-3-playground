@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Destiny 2 Armor 3.0 Playground</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand-block">
+        <span class="eyebrow">Destiny 2 Armor 3.0</span>
+        <h1>护甲 Playground</h1>
+      </div>
+      <nav class="top-tabs" aria-label="页面">
+        <button class="tab is-active" data-tab="builder" type="button">构建器</button>
+        <button class="tab" data-tab="mods" type="button">模组沙盒</button>
+        <button class="tab" data-tab="reference" type="button">资料</button>
+      </nav>
+    </header>
+
+    <main class="app-shell">
+      <section id="builder" class="tab-panel is-active">
+        <section class="metrics-row">
+          <article class="metric">
+            <span>套装</span>
+            <strong id="metricSets">-</strong>
+          </article>
+          <article class="metric">
+            <span>去重模组</span>
+            <strong id="metricMods">-</strong>
+          </article>
+          <article class="metric">
+            <span>异域护甲</span>
+            <strong id="metricExotics">-</strong>
+          </article>
+          <article class="metric metric-wide">
+            <span>Manifest</span>
+            <strong id="metricManifest">-</strong>
+          </article>
+        </section>
+
+        <section class="builder-grid">
+          <article class="panel loadout-panel">
+            <div class="panel-head">
+              <div>
+                <span class="eyebrow">Loadout</span>
+                <h2>装备配置</h2>
+              </div>
+              <select id="classSelect" class="compact-control" aria-label="职业"></select>
+            </div>
+            <div id="gearSlots" class="gear-stack"></div>
+          </article>
+
+          <aside class="side-column">
+            <article class="panel">
+              <div class="panel-head">
+                <div>
+                  <span class="eyebrow">Totals</span>
+                  <h2>总属性</h2>
+                </div>
+                <label class="inline-toggle">
+                  <input id="communityToggle" type="checkbox" checked />
+                  <span>社区估测</span>
+                </label>
+              </div>
+              <div id="statBars" class="stat-bars"></div>
+            </article>
+
+            <article class="panel">
+              <div class="panel-head">
+                <div>
+                  <span class="eyebrow">Effects</span>
+                  <h2>已生效效果</h2>
+                </div>
+              </div>
+              <div id="activeSetBonuses" class="effect-stack"></div>
+              <div id="activeExotic" class="effect-stack"></div>
+            </article>
+          </aside>
+        </section>
+
+        <section class="atlas-grid">
+          <article class="panel">
+            <div class="panel-head">
+              <div>
+                <span class="eyebrow">Set Atlas</span>
+                <h2>套装效果图鉴</h2>
+              </div>
+              <div class="inline-controls">
+                <input id="builderSetSearch" type="search" placeholder="搜索套装或效果" />
+                <select id="builderSetCategory"></select>
+              </div>
+            </div>
+            <div id="builderSetAtlas" class="atlas-list set-atlas"></div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-head">
+              <div>
+                <span class="eyebrow">Exotic Atlas</span>
+                <h2>异域图鉴</h2>
+              </div>
+              <div class="inline-controls">
+                <input id="builderExoticSearch" type="search" placeholder="搜索异域或 perk" />
+                <select id="builderExoticSlot"></select>
+              </div>
+            </div>
+            <div id="builderExoticAtlas" class="atlas-list exotic-atlas"></div>
+          </article>
+        </section>
+      </section>
+
+      <section id="mods" class="tab-panel">
+        <section class="mod-grid">
+          <aside class="panel mod-library-panel">
+            <div class="panel-head">
+              <div>
+                <span class="eyebrow">Library</span>
+                <h2>模组库</h2>
+              </div>
+              <span id="modResultCount" class="pill"></span>
+            </div>
+            <div class="filter-grid">
+              <input id="modSearch" type="search" placeholder="Font, Surge, Siphon..." />
+              <select id="modTypeFilter"></select>
+              <select id="modSlotFilter"></select>
+            </div>
+            <div id="modLibrary" class="mod-library"></div>
+          </aside>
+
+          <section class="panel mod-board-panel">
+            <div class="panel-head">
+              <div>
+                <span class="eyebrow">Sockets</span>
+                <h2>护甲槽位</h2>
+              </div>
+              <button id="clearModsBtn" class="soft-button" type="button">清空模组</button>
+            </div>
+            <div id="modSlots" class="mod-socket-board"></div>
+          </section>
+
+          <aside class="side-column mod-side">
+            <article class="panel">
+              <div class="panel-head">
+                <div>
+                  <span class="eyebrow">Linked</span>
+                  <h2>联动统计</h2>
+                </div>
+              </div>
+              <div id="modStatPreview" class="stat-bars"></div>
+            </article>
+            <article class="panel">
+              <div class="panel-head">
+                <div>
+                  <span class="eyebrow">Community</span>
+                  <h2>社区测试值</h2>
+                </div>
+              </div>
+              <div id="communitySummary" class="effect-stack"></div>
+            </article>
+          </aside>
+        </section>
+      </section>
+
+      <section id="reference" class="tab-panel">
+        <section class="reference-grid">
+          <article class="panel">
+            <div class="panel-head">
+              <div>
+                <span class="eyebrow">Frames</span>
+                <h2>护甲框架</h2>
+              </div>
+            </div>
+            <div id="archetypeList" class="reference-list"></div>
+          </article>
+          <article class="panel">
+            <div class="panel-head">
+              <div>
+                <span class="eyebrow">Tuning</span>
+                <h2>Tuning 模组</h2>
+              </div>
+            </div>
+            <div id="tuningList" class="reference-list"></div>
+          </article>
+          <article class="panel">
+            <div class="panel-head">
+              <div>
+                <span class="eyebrow">Sources</span>
+                <h2>来源</h2>
+              </div>
+            </div>
+            <div id="sourceNotes" class="reference-list"></div>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
