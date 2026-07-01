@@ -1,23 +1,25 @@
 # Destiny 2 Armor 3.0 Playground
 
-离线可用的 Destiny 2 护甲 3.0 构建器与模组沙盒。
+Finally. After Bungie killed Destiny 2, we finally have a working armor sandbox.
 
-## 使用
+An offline Destiny 2 Armor 3.0 builder and mod playground.
 
-直接打开 `index.html` 即可使用。所有数据、脚本、样式和图标资源都包含在仓库内，不依赖运行时网络请求。
+## Use
 
-## 内容
+Open `index.html` directly in a browser. The app is fully static and includes its data, scripts, styles, and icon assets locally.
 
-- 构建器：职业、套装、异域、框架、Tier、大师、第三属性、Tuning。
-- 套装效果图鉴：按套装展示 2/4 件效果。
-- 异域图鉴：按职业与部位搜索，并可装备到构建器。
-- 模组沙盒：每件护甲包含属性 mod、Tuning、3 个功能 mod。
-- 属性统计：属性 mod、Tuning、Font 社区估测会联动总属性。
+## Features
 
-## 数据来源
+- Builder for class, armor set, exotic armor, frame, tier, masterwork, tertiary stat, and tuning.
+- Set atlas with 2-piece and 4-piece effects.
+- Exotic armor atlas with class and slot filters.
+- Mod playground with one stat mod socket, one tuning socket, and three function mod sockets per armor piece.
+- Linked stat totals for armor rolls, stat mods, tuning, and community-tested Font estimates.
+
+## Data Sources
 
 - Bungie Destiny 2 Manifest
-- Bungie 9.7.0 更新说明
-- destiny2.science 社区测试索引
+- Bungie Update 9.7.0 notes
+- destiny2.science community testing index
 
-社区测试数值带有不确定性，只作为构建参考。
+Community-tested values are marked as estimates and should be treated as buildcrafting references.
